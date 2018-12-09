@@ -39,7 +39,7 @@ public class HomeActivity extends AppCompatActivity {
     }
 
     public void addTransactionPressed (View view) {
-        //goToActivity (AddTransactionActivty.class);
+        goToAddTransaction();
     }
 
     public void myTransactionsPressed (View view) {
@@ -96,9 +96,9 @@ public class HomeActivity extends AppCompatActivity {
         startActivity(activity);
     }
 
-    private void goToAddAddTransaction() {
+    private void goToAddTransaction() {
 
-        Intent activity = new Intent(HomeActivity.this, AddOrganisationActivty.class) ;
+        Intent activity = new Intent(HomeActivity.this, AddTransactionActivity.class) ;
         startActivity(activity);
     }
 
