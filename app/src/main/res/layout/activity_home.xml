@@ -8,6 +8,22 @@
     tools:context=".HomeActivity">
 
     <Button
+        android:id="@+id/homeSettingsButton"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginBottom="8dp"
+        android:background="@android:color/holo_red_light"
+        android:onClick="settingsPressed"
+        android:text="Settings"
+        android:textColor="@android:color/background_light"
+        app:layout_constraintBottom_toTopOf="@+id/homeLogoutButton"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <Button
         android:id="@+id/homeAddOrgButton"
         android:layout_width="0dp"
         android:layout_height="wrap_content"

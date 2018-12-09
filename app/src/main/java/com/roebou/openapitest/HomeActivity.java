@@ -46,6 +46,12 @@ public class HomeActivity extends AppCompatActivity {
         //goToActivity (MyTransactionsActivty.class);
     }
 
+    public void settingsPressed (View view) {
+
+        goToSettingsActivity();
+
+    }
+
     public void logoutPressed (View view) {
 
         ParseUser user = ParseUser.getCurrentUser() ;
@@ -101,4 +107,11 @@ public class HomeActivity extends AppCompatActivity {
         Intent activity = new Intent(HomeActivity.this, AddOrganisationActivty.class) ;
         startActivity(activity);
     }
+
+    private void goToSettingsActivity() {
+
+        Intent activity = new Intent(HomeActivity.this, SettingsActivity.class) ;
+        startActivity(activity);
+    }
+
 }
