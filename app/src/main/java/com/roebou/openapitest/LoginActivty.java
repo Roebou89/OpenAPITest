@@ -33,6 +33,11 @@ public class LoginActivty extends AppCompatActivity {
         loginButton = findViewById(R.id.loginLoginButton) ;
         loginCreateNewAccButton = findViewById(R.id.loginCreateNewAccButton) ;
 
+        if (ParseUser.getCurrentUser() != null) {
+
+            ParseUser.getCurrentUser().logOut();
+
+        }
     }
 
     public void loginCreateNewAccIntent (View view) {
@@ -56,9 +61,13 @@ public class LoginActivty extends AppCompatActivity {
                     @Override
                     public void done(ParseUser user, ParseException e) {
 
-                        if (user != null) {
+                        if (user != null && e == null) {
 
                             FancyToast.makeText(getApplicationContext(), "Login successful!", FancyToast.LENGTH_LONG, FancyToast.SUCCESS, true).show();
+                            progressDialog.dismiss();
+
+                            goToHomeActivity() ;
+
 
                         } else {
 
@@ -76,19 +85,13 @@ public class LoginActivty extends AppCompatActivity {
                                     FancyToast.makeText(getApplicationContext(), "Error signing up user. Please try again later.", FancyToast.LENGTH_LONG, FancyToast.ERROR, true).show();
 
                                 }
+
+                                progressDialog.dismiss();
+
                         }
 
-                        progressDialog.dismiss();
                     }
                 });
-
-                ParseUser user = ParseUser.getCurrentUser() ;
-
-                if (user != null) {
-
-                    Intent homeActivity = new Intent(this, HomeActivity.class) ;
-                    startActivity(homeActivity);
-                }
 
             } else {
 
@@ -101,5 +104,11 @@ public class LoginActivty extends AppCompatActivity {
             e.printStackTrace();
 
         }
+    }
+
+    private void goToHomeActivity () {
+
+        Intent homeAct = new Intent(LoginActivty.this, HomeActivity.class) ;
+        startActivity(homeAct);
     }
 }

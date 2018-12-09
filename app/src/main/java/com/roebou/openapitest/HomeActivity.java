@@ -37,6 +37,8 @@ public class HomeActivity extends AppCompatActivity {
 
                         FancyToast.makeText(getApplicationContext(), "User successfully logged out!", FancyToast.LENGTH_LONG, FancyToast.SUCCESS, true).show();
 
+                        goToMainActivity ();
+
                     } else {
 
                         e.printStackTrace();
@@ -49,11 +51,11 @@ public class HomeActivity extends AppCompatActivity {
                 }
             });
 
-        user = ParseUser.getCurrentUser() ;
+    }
 
-        if (user == null) {
-            Intent loginActivity = new Intent(this, LoginActivty.class) ;
-            startActivity(loginActivity);
-        }
+    private void goToMainActivity () {
+
+        Intent mainAct = new Intent(HomeActivity.this, MainActivity.class) ;
+        startActivity(mainAct);
     }
 }

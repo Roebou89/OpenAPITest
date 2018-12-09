@@ -36,6 +36,12 @@ public class SignUpActivity extends AppCompatActivity {
         emailAddress = findViewById(R.id.suEmailEditText) ;
         suButton = findViewById(R.id.suButton) ;
         suLoginButton = findViewById(R.id.suLoginButton) ;
+
+        if (ParseUser.getCurrentUser() != null) {
+
+            ParseUser.getCurrentUser().logOut();
+
+        }
     }
 
 
@@ -47,9 +53,9 @@ public class SignUpActivity extends AppCompatActivity {
     }
 
     public void signUpAct(View view) {
-        Log.i("DEMO", "Signing Up") ;
+        Log.i("DEMO", "Signing Up");
 
-        ParseUser user =  new ParseUser() ;
+        ParseUser user = new ParseUser();
 
         try {
             if (!username.getText().toString().equals("") && !password.getText().toString().equals("") && !emailAddress.getText().toString().equals("")) {
@@ -69,6 +75,9 @@ public class SignUpActivity extends AppCompatActivity {
                         if (e == null) {
 
                             FancyToast.makeText(getApplicationContext(), "User " + username.getText().toString() + " successfully signed up!", FancyToast.LENGTH_LONG, FancyToast.SUCCESS, true).show();
+                            progressDialog.dismiss();
+
+                            goToHomeActivity() ;
 
                         } else {
 
@@ -86,26 +95,28 @@ public class SignUpActivity extends AppCompatActivity {
                                 FancyToast.makeText(getApplicationContext(), "Error signing up user. Please try again later.", FancyToast.LENGTH_LONG, FancyToast.ERROR, true).show();
 
                             }
+
+                            progressDialog.dismiss();
+
                         }
 
-                        progressDialog.dismiss();
                     }
                 });
 
-                user = ParseUser.getCurrentUser() ;
-
-                if (user != null) {
-
-                    Intent homeActivity = new Intent(this, HomeActivity.class) ;
-                    startActivity(homeActivity);
-                }
-
             } else {
+
                 FancyToast.makeText(getApplicationContext(), "Please fill in all fields before attempting to create your user.", FancyToast.LENGTH_LONG, FancyToast.ERROR, true).show();
+
             }
 
         } catch (Exception e) {
             e.printStackTrace();
         }
+    }
+
+    private void goToHomeActivity () {
+
+        Intent homeAct = new Intent(SignUpActivity.this, HomeActivity.class) ;
+        startActivity(homeAct);
     }
 }
