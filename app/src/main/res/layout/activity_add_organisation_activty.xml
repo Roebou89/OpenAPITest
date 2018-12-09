@@ -5,63 +5,52 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/tree"
-    tools:context=".LoginActivty">
+    tools:context=".AddOrganisationActivty">
 
     <EditText
-        android:id="@+id/loginUsernameEditText"
+        android:id="@+id/addOrgOrgNameEditText"
         android:layout_width="379dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
         android:layout_marginTop="16dp"
         android:layout_marginEnd="16dp"
         android:ems="10"
-        android:hint="Please Enter Your Username"
+        android:hint="Please Enter Organisation Name"
         android:inputType="textPersonName"
+        android:maxLength="100"
         android:textColorHint="@android:color/holo_red_dark"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <EditText
-        android:id="@+id/loginPasswordEditText"
+        android:id="@+id/addOrgOrgShortcodeEditText"
         android:layout_width="379dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
         android:layout_marginTop="8dp"
         android:layout_marginEnd="16dp"
+        android:digits="0123456789"
         android:ems="10"
-        android:hint="Please Enter Your Password"
-        android:inputType="numberPassword"
+        android:hint="Please Enter Organisation Shortcode"
+        android:inputType="numberSigned"
+        android:maxLength="6"
         android:textColorHint="@android:color/holo_red_dark"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/loginUsernameEditText" />
+        app:layout_constraintTop_toBottomOf="@+id/addOrgOrgNameEditText" />
 
     <Button
-        android:id="@+id/loginLoginButton"
-        android:layout_width="379dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:layout_marginEnd="16dp"
-        android:layout_marginBottom="8dp"
-        android:background="@android:color/holo_red_light"
-        android:onClick="loginPressed"
-        android:text="Login"
-        android:textColor="@android:color/background_light"
-        app:layout_constraintBottom_toTopOf="@+id/loginCreateNewAccButton"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
-
-    <Button
-        android:id="@+id/loginCreateNewAccButton"
-        android:layout_width="379dp"
+        android:id="@+id/addOrgAddButton"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
         android:layout_marginEnd="16dp"
         android:layout_marginBottom="16dp"
         android:background="@android:color/holo_red_light"
-        android:onClick="loginCreateNewAccPressed"
-        android:text="Sign Up New Account"
+        android:onClick="addOrgPressed"
+        android:text="Add Organisation"
         android:textColor="@android:color/background_light"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"

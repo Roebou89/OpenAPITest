@@ -35,19 +35,19 @@ public class LoginActivty extends AppCompatActivity {
 
         if (ParseUser.getCurrentUser() != null) {
 
-            ParseUser.getCurrentUser().logOut();
+            goToHomeActivity() ;
 
         }
     }
 
-    public void loginCreateNewAccIntent (View view) {
+    public void loginCreateNewAccPressed (View view) {
         Log.i("DEMO", "Back To Sign Up Activity") ;
 
         Intent signUp = new Intent(this, SignUpActivity.class) ;
         startActivity(signUp);
     }
 
-    public void loginAct(View view) {
+    public void loginPressed(View view) {
         Log.i("DEMO", "Logging In") ;
 
         try {

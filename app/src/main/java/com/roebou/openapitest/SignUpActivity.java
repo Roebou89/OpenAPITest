@@ -39,20 +39,20 @@ public class SignUpActivity extends AppCompatActivity {
 
         if (ParseUser.getCurrentUser() != null) {
 
-            ParseUser.getCurrentUser().logOut();
+            goToHomeActivity() ;
 
         }
     }
 
 
-    public void signUpLoginIntent (View view) {
+    public void signUpLoginPressed (View view) {
         Log.i("DEMO", "Back To Login Activity") ;
 
         Intent login = new Intent(this, LoginActivty.class) ;
         startActivity(login);
     }
 
-    public void signUpAct(View view) {
+    public void signUpPressed(View view) {
         Log.i("DEMO", "Signing Up");
 
         ParseUser user = new ParseUser();

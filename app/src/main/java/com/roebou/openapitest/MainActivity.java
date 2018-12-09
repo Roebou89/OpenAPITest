@@ -25,23 +25,28 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         setTitle("Main Menu");
 
+        if (ParseUser.getCurrentUser() != null) {
+
+            goToHomeActivity() ;
+
+        }
     }
 
-    public void goToSignUpAct (View view) {
+    public void signUpPressed (View view) {
 
         Intent signUp = new Intent(this, SignUpActivity.class) ;
         startActivity(signUp);
 
     }
 
-    public void goToLoginAct (View view) {
+    public void loginPressed (View view) {
 
             Intent login = new Intent(this, LoginActivty.class) ;
             startActivity(login);
 
     }
 
-    public void logoutUser (View view) {
+    public void logoutPressed (View view) {
 
         final ParseUser user = ParseUser.getCurrentUser() ;
 
@@ -77,6 +82,12 @@ public class MainActivity extends AppCompatActivity {
 
         }
 
+    }
+
+    private void goToHomeActivity () {
+
+        Intent homeAct = new Intent(MainActivity.this, HomeActivity.class) ;
+        startActivity(homeAct);
     }
 
 }
