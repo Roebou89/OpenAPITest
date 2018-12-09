@@ -49,7 +49,7 @@ public class SignUpActivity extends AppCompatActivity {
     public void signUpAct(View view) {
         Log.i("DEMO", "Signing Up") ;
 
-        final ParseUser user =  new ParseUser() ;
+        ParseUser user =  new ParseUser() ;
 
         try {
             if (!username.getText().toString().equals("") && !password.getText().toString().equals("") && !emailAddress.getText().toString().equals("")) {
@@ -91,6 +91,14 @@ public class SignUpActivity extends AppCompatActivity {
                         progressDialog.dismiss();
                     }
                 });
+
+                user = ParseUser.getCurrentUser() ;
+
+                if (user != null) {
+
+                    Intent homeActivity = new Intent(this, HomeActivity.class) ;
+                    startActivity(homeActivity);
+                }
 
             } else {
                 FancyToast.makeText(getApplicationContext(), "Please fill in all fields before attempting to create your user.", FancyToast.LENGTH_LONG, FancyToast.ERROR, true).show();

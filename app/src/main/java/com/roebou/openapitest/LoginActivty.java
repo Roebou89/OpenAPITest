@@ -82,6 +82,14 @@ public class LoginActivty extends AppCompatActivity {
                     }
                 });
 
+                ParseUser user = ParseUser.getCurrentUser() ;
+
+                if (user != null) {
+
+                    Intent homeActivity = new Intent(this, HomeActivity.class) ;
+                    startActivity(homeActivity);
+                }
+
             } else {
 
                 FancyToast.makeText(getApplicationContext(), "Please fill in all fields before attempting to login.", FancyToast.LENGTH_LONG, FancyToast.ERROR, true).show();
