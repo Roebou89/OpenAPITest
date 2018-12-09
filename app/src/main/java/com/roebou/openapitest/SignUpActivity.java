@@ -9,6 +9,10 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 
+import com.parse.Parse;
+import com.parse.ParseObject;
+import com.parse.ParseUser;
+
 public class SignUpActivity extends AppCompatActivity {
 
     private EditText username ;
@@ -39,5 +43,6 @@ public class SignUpActivity extends AppCompatActivity {
 
     public void signUpAct(View view) {
         Log.i("DEMO", "Signing Up") ;
+
     }
 }
